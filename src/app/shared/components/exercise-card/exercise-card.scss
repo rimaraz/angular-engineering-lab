@@ -1,0 +1,28 @@
+.exercise-card {
+  border-radius: 1.25rem;
+}
+
+.exercise-card__objective {
+  margin: 0 0 1rem;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.exercise-card__meta {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-small);
+}
+
+.exercise-card__placeholder {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px dashed var(--mat-sys-outline-variant);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--mat-sys-surface-container-lowest) 82%, white);
+}
+
+.exercise-card__placeholder p {
+  margin: 0.5rem 0 0;
+}

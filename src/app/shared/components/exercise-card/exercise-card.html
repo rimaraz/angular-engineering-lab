@@ -1,0 +1,25 @@
+<mat-card class="exercise-card" appearance="filled">
+  <mat-card-content>
+    <p class="exercise-card__objective">{{ exercise().objective }}</p>
+
+    @if (exercise().concepts.length) {
+      <mat-chip-set>
+        @for (concept of exercise().concepts; track concept) {
+          <mat-chip>{{ concept }}</mat-chip>
+        }
+      </mat-chip-set>
+    }
+
+    <div class="exercise-card__meta">
+      <span>{{ exercise().difficulty }}</span>
+      <span>{{ exercise().todo }}</span>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="exercise-card__placeholder">
+      <strong>Future implementation area</strong>
+      <p>Leave this section empty until you want to manually solve the exercise.</p>
+    </div>
+  </mat-card-content>
+</mat-card>

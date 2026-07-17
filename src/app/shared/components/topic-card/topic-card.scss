@@ -1,0 +1,43 @@
+.topic-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  background: color-mix(in srgb, var(--mat-sys-surface-container-low) 75%, white);
+}
+
+.topic-card mat-card-header {
+  align-items: start;
+}
+
+.topic-card__avatar {
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--mat-sys-primary-container) 80%, white);
+  color: var(--mat-sys-primary);
+}
+
+.topic-card__progress {
+  margin-top: 1rem;
+}
+
+.topic-card__progress-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-medium);
+}
+
+.topic-card__progress p {
+  margin: 0.5rem 0 0;
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-small);
+}
+
+.topic-card mat-card-actions {
+  margin-top: auto;
+  padding-inline: 1rem;
+  padding-bottom: 1rem;
+}

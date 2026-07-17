@@ -1,0 +1,31 @@
+<div class="sidebar">
+  <div class="sidebar__intro">
+    <p class="sidebar__eyebrow">Workspace</p>
+    @if (!collapsed() || isMobile()) {
+      <h2>Learning sections</h2>
+      <p>Navigate through Angular topics and keep future exercises organized.</p>
+    }
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-nav-list class="sidebar__nav">
+    @for (item of items(); track item.path) {
+      <a
+        mat-list-item
+        [routerLink]="item.path"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+        (click)="navigate.emit()"
+      >
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        @if (!collapsed() || isMobile()) {
+          <span matListItemTitle>{{ item.label }}</span>
+        }
+        @if ((!collapsed() || isMobile()) && item.description) {
+          <span matListItemLine>{{ item.description }}</span>
+        }
+      </a>
+    }
+  </mat-nav-list>
+</div>

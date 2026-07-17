@@ -1,0 +1,25 @@
+<mat-toolbar class="header">
+  @if (isMobile()) {
+    <button matIconButton type="button" aria-label="Open navigation menu" (click)="menuToggle.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  } @else if (isDesktop()) {
+    <button
+      matIconButton
+      type="button"
+      aria-label="Collapse desktop navigation"
+      (click)="desktopCollapseToggle.emit()"
+    >
+      <mat-icon>{{ isSidebarCollapsed() ? 'menu_open' : 'menu' }}</mat-icon>
+    </button>
+  }
+
+  <div class="header__brand" data-testid="project-title">
+    <mat-icon>science</mat-icon>
+    <span>{{ title() }}</span>
+  </div>
+
+  @if (isDesktop()) {
+    <span class="header__context">Angular Material learning workspace</span>
+  }
+</mat-toolbar>
