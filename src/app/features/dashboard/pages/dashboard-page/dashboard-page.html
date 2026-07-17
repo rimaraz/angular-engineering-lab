@@ -1,0 +1,28 @@
+<section class="dashboard-page">
+  <mat-card class="dashboard-page__hero" appearance="outlined">
+    <div>
+      <p class="dashboard-page__eyebrow">Angular learning laboratory</p>
+      <h1>Dashboard</h1>
+      <p>
+        Use this shell to organize focused Angular exercises, compare patterns, and expand each topic when you are
+        ready to implement it manually.
+      </p>
+    </div>
+
+    <div class="dashboard-page__hero-icon">
+      <mat-icon>science</mat-icon>
+    </div>
+  </mat-card>
+
+  <mat-chip-set>
+    <mat-chip>{{ topics.length }} learning topics</mat-chip>
+    <mat-chip>{{ totalExercises }} proposed exercises</mat-chip>
+    <mat-chip>Standalone + lazy-loaded routes</mat-chip>
+  </mat-chip-set>
+
+  <section class="dashboard-page__grid" aria-label="Learning topics overview">
+    @for (topic of topics; track topic.path) {
+      <app-topic-card [topic]="topic"></app-topic-card>
+    }
+  </section>
+</section>

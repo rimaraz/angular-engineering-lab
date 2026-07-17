@@ -1,0 +1,33 @@
+<mat-card class="topic-card" appearance="outlined" data-testid="topic-card">
+  <mat-card-header>
+    <div mat-card-avatar class="topic-card__avatar">
+      <mat-icon>{{ topic().icon }}</mat-icon>
+    </div>
+    <mat-card-title>{{ topic().title }}</mat-card-title>
+    <mat-card-subtitle>{{ topic().description }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-chip-set>
+      <mat-chip>{{ topic().difficulty }}</mat-chip>
+      <mat-chip>{{ topic().exercises.length }} exercises</mat-chip>
+    </mat-chip-set>
+
+    <div class="topic-card__progress">
+      <div class="topic-card__progress-heading">
+        <span>Progress placeholder</span>
+        <strong>{{ topic().progress }}%</strong>
+      </div>
+      <mat-progress-bar mode="determinate" [value]="topic().progress"></mat-progress-bar>
+      @if (topic().progress === 0) {
+        <p>Ready to start.</p>
+      } @else {
+        <p>Static progress preview for the initial shell.</p>
+      }
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a matButton="filled" [routerLink]="['/', topic().path]">Open topic</a>
+  </mat-card-actions>
+</mat-card>

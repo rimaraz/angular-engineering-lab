@@ -1,0 +1,50 @@
+:host,
+.layout-shell {
+  display: block;
+  min-height: 100%;
+}
+
+.layout-shell {
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--mat-sys-primary-container) 42%, white), transparent 35%),
+    var(--mat-sys-surface);
+}
+
+.layout-shell__container {
+  min-height: calc(100vh - 64px);
+  background: transparent;
+}
+
+.layout-shell__sidenav {
+  width: 18rem;
+  border-right: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 60%, transparent);
+}
+
+.layout-shell__sidenav.layout-shell__sidenav--collapsed {
+  width: 5.5rem;
+}
+
+.layout-shell__content {
+  background: transparent;
+}
+
+.layout-shell__content-inner {
+  width: min(100%, 76rem);
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.layout-shell__content-inner--tablet {
+  padding-inline: 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .layout-shell__container {
+    min-height: calc(100vh - 56px);
+  }
+
+  .layout-shell__content-inner {
+    padding: 1rem;
+  }
+}

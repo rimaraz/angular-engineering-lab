@@ -1,0 +1,32 @@
+<div class="layout-shell">
+  <app-header
+    [title]="projectTitle"
+    [isMobile]="isMobile()"
+    [isDesktop]="isDesktop()"
+    [isSidebarCollapsed]="isSidebarCollapsed()"
+    (menuToggle)="toggleMobileNavigation()"
+    (desktopCollapseToggle)="toggleDesktopSidebar()"
+  ></app-header>
+
+  <mat-sidenav-container class="layout-shell__container">
+    <mat-sidenav
+      class="layout-shell__sidenav"
+      [class.layout-shell__sidenav--collapsed]="isDesktop() && isSidebarCollapsed()"
+      [mode]="sidenavMode()"
+      [opened]="sidenavOpened()"
+    >
+      <app-sidebar
+        [items]="navigationItems"
+        [collapsed]="isDesktop() && isSidebarCollapsed()"
+        [isMobile]="isMobile()"
+        (navigate)="closeMobileNavigation()"
+      ></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="layout-shell__content">
+      <main class="layout-shell__content-inner" [class.layout-shell__content-inner--tablet]="isTablet()">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,98 @@
+<section class="learning-page">
+  <mat-card class="learning-page__hero" appearance="outlined">
+    <div class="learning-page__hero-copy">
+      <p class="learning-page__eyebrow">Learning topic</p>
+      <h1>{{ topic().title }}</h1>
+      <p class="learning-page__description">{{ topic().description }}</p>
+
+      <mat-chip-set>
+        <mat-chip>{{ topic().difficulty }}</mat-chip>
+        <mat-chip>{{ topic().exercises.length }} planned exercises</mat-chip>
+        <mat-chip>{{ topic().progress }}% placeholder progress</mat-chip>
+      </mat-chip-set>
+    </div>
+
+    <div class="learning-page__icon">
+      <mat-icon>{{ topic().icon }}</mat-icon>
+    </div>
+  </mat-card>
+
+  <div class="learning-page__grid">
+    <mat-card class="learning-page__section" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Concepts to practice</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          @for (concept of topic().concepts; track concept) {
+            <mat-list-item>
+              <mat-icon matListItemIcon>check_circle</mat-icon>
+              <span matListItemTitle>{{ concept }}</span>
+            </mat-list-item>
+          }
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="learning-page__section learning-page__section--wide" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Proposed exercises</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-accordion>
+          @for (exercise of topic().exercises; track exercise.title) {
+            <mat-expansion-panel [expanded]="$first">
+              <mat-expansion-panel-header>
+                <mat-panel-title>{{ exercise.title }}</mat-panel-title>
+                <mat-panel-description>{{ exercise.difficulty }}</mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <app-exercise-card [exercise]="exercise"></app-exercise-card>
+            </mat-expansion-panel>
+          }
+        </mat-accordion>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="learning-page__section" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Interview questions</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          @for (question of topic().interviewQuestions; track question) {
+            <mat-list-item>
+              <mat-icon matListItemIcon>help</mat-icon>
+              <span matListItemTitle>{{ question }}</span>
+            </mat-list-item>
+          }
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="learning-page__section" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Future implementations</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          This area is intentionally scaffolded only. Add concrete components, services, and experiments when you
+          decide to work on this topic.
+        </p>
+
+        <mat-divider></mat-divider>
+
+        <div class="learning-page__checklist">
+          <mat-checkbox disabled>Plan the exercise approach</mat-checkbox>
+          <mat-checkbox disabled>Create the implementation workspace</mat-checkbox>
+          <mat-checkbox disabled>Write verification tests</mat-checkbox>
+        </div>
+
+        <div class="learning-page__future-slot">
+          <strong>TODO placeholder</strong>
+          <p>Use this slot for future manual implementations and experiment notes.</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
